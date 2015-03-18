@@ -1,6 +1,6 @@
 {
   "name": "mongoose-friendly-id",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Slug for mongoose",
   "main": "dest/mongoose-friendly-id.js",
   "scripts": {
@@ -30,20 +30,44 @@
     "user friendly url",
     "seo friendly url"
   ],
-  "author": "victorkim",
+  "author": {
+    "name": "victorkim"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/victorkim/mongoose-friendly-id/issues"
   },
   "devDependencies": {
-    "coffee-script": "^1.8.0",
-    "iced-coffee-script": "*",
+    "iced-coffee-script": "^1.7.1-f",
+    "coffee-script": "*",
     "gulp": "^3.8.8",
-    "gulp-iced-coffee": "doublerebel/gulp-iced-coffee"
+    "gulp-iced-coffee": "git://github.com/doublerebel/gulp-iced-coffee"
   },
   "dependencies": {
+    "iced-runtime": "~1.0.0",
     "speakingurl-add-korean": "*",
     "mongoose": "*"
   },
-  "homepage": "https://github.com/victorkim/mongoose-friendly-id"
+  "homepage": "https://github.com/victorkim/mongoose-friendly-id",
+  "gitHead": "61ffc99dfa1ae452a7b5688681178f5d15252128",
+  "_id": "mongoose-friendly-id@1.0.3",
+  "_shasum": "6670b1d30db9d876d132b268773942dfc2275a8b",
+  "_from": "mongoose-friendly-id@1.0.3",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "rubydoc",
+    "email": "me@kimseongjun.co.kr"
+  },
+  "maintainers": [
+    {
+      "name": "rubydoc",
+      "email": "me@kimseongjun.co.kr"
+    }
+  ],
+  "dist": {
+    "shasum": "6670b1d30db9d876d132b268773942dfc2275a8b",
+    "tarball": "http://registry.npmjs.org/mongoose-friendly-id/-/mongoose-friendly-id-1.0.3.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/mongoose-friendly-id/-/mongoose-friendly-id-1.0.3.tgz"
 }

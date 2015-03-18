@@ -1,5 +1,6 @@
 slug = require 'speakingurl-add-korean'
 ObjectId = require('mongoose').Types.ObjectId
+iced = require 'iced-runtime'
 
 module.exports = (schema, properties) ->
 

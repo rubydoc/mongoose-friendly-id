@@ -1,4 +1,4 @@
-var ObjectId, slug, __iced_k, __iced_k_noop;
+var ObjectId, iced, slug, __iced_k, __iced_k_noop;
 
 __iced_k = __iced_k_noop = function() {};
 
@@ -6,10 +6,13 @@ slug = require('speakingurl-add-korean');
 
 ObjectId = require('mongoose').Types.ObjectId;
 
+iced = require('iced-runtime');
+
 module.exports = function(schema, properties) {
   schema.add({
     slug: {
-      type: 'String'
+      type: 'String',
+      uniq: true
     }
   });
   schema.add({
@@ -79,7 +82,7 @@ module.exports = function(schema, properties) {
               return data = arguments[1];
             };
           })(),
-          lineno: 45
+          lineno: 47
         }));
         __iced_deferrals._fulfill();
       });
