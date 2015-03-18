@@ -1,6 +1,6 @@
 {
   "name": "mongoose-friendly-id",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Slug for mongoose",
   "main": "dest/mongoose-friendly-id.js",
   "scripts": {
