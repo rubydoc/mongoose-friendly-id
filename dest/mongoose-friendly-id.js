@@ -1,4 +1,6 @@
-var ObjectId, slug;
+var ObjectId, slug, __iced_k, __iced_k_noop;
+
+__iced_k = __iced_k_noop = function() {};
 
 slug = require('speakingurl-add-korean');
 
@@ -7,8 +9,7 @@ ObjectId = require('mongoose').Types.ObjectId;
 module.exports = function(schema, properties) {
   schema.add({
     slug: {
-      type: 'String',
-      unique: true
+      type: 'String'
     }
   });
   schema.add({
@@ -31,7 +32,9 @@ module.exports = function(schema, properties) {
     return this.findOne(query, fields, options, callback);
   };
   return schema.pre('save', function(next) {
-    var prop, props, slugged;
+    var data, err, prop, props, slugged, ___iced_passed_deferral, __iced_deferrals, __iced_k;
+    __iced_k = __iced_k_noop;
+    ___iced_passed_deferral = iced.findDeferral(arguments);
     slugged = null;
     if (typeof properties === "string") {
       slugged = slug(this[properties]);
@@ -41,13 +44,13 @@ module.exports = function(schema, properties) {
     }
     if (Array.isArray(properties)) {
       props = (function() {
-        var i, len, results;
-        results = [];
-        for (i = 0, len = properties.length; i < len; i++) {
-          prop = properties[i];
-          results.push(this[prop]);
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = properties.length; _i < _len; _i++) {
+          prop = properties[_i];
+          _results.push(this[prop]);
         }
-        return results;
+        return _results;
       }).call(this);
       slugged = slug(props.join(" "));
     }
@@ -58,20 +61,42 @@ module.exports = function(schema, properties) {
         slugged = this.id;
       }
     }
-    return this.collection.findOne({
-      _id: {
-        $ne: new ObjectId(this.id)
-      },
-      slugs: slugged
-    }, function(err, data) {
-      if (data) {
-        slugged = this.id;
-      }
-      if (this.slugs && this.slugs.indexOf(slugged) === -1) {
-        this.slugs.push(slugged);
-      }
-      this.slug = slugged;
-      return next();
-    });
+    (function(_this) {
+      return (function(__iced_k) {
+        __iced_deferrals = new iced.Deferrals(__iced_k, {
+          parent: ___iced_passed_deferral,
+          filename: "/Users/victor/projects/custom_npm/mongoose-friendly-id/src/mongoose-friendly-id.coffee"
+        });
+        _this.collection.findOne({
+          _id: {
+            $ne: new ObjectId(_this.id)
+          },
+          slugs: slugged
+        }, __iced_deferrals.defer({
+          assign_fn: (function() {
+            return function() {
+              err = arguments[0];
+              return data = arguments[1];
+            };
+          })(),
+          lineno: 45
+        }));
+        __iced_deferrals._fulfill();
+      });
+    })(this)((function(_this) {
+      return function() {
+        if (data) {
+          slugged = _this.id;
+        }
+        if (!_this.slugs) {
+          _this.slugs = [];
+        }
+        if (_this.slugs && _this.slugs.indexOf(slugged) === -1) {
+          _this.slugs.push(slugged);
+        }
+        _this.slug = slugged;
+        return next();
+      };
+    })(this));
   });
 };

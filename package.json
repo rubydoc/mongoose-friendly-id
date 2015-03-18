@@ -1,6 +1,6 @@
 {
   "name": "mongoose-friendly-id",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Slug for mongoose",
   "main": "dest/mongoose-friendly-id.js",
   "scripts": {
@@ -37,8 +37,9 @@
   },
   "devDependencies": {
     "coffee-script": "^1.8.0",
+    "iced-coffee-script": "*",
     "gulp": "^3.8.8",
-    "gulp-coffee": "^2.1.1"
+    "gulp-iced-coffee": "doublerebel/gulp-iced-coffee"
   },
   "dependencies": {
     "speakingurl-add-korean": "*",

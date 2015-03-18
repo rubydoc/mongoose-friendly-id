@@ -6,6 +6,7 @@ module.exports = (schema, properties) ->
   schema.add
     slug: 
       type: 'String'
+      uniq: true
   
   schema.add 
     slugs: [ String ]
@@ -37,16 +38,19 @@ module.exports = (schema, properties) ->
       else
         slugged = @id
 
-    @collection
-    .findOne
-      _id: 
-        $ne: new ObjectId(@id) 
-      slugs: slugged 
-    , (err, data) ->
+    await 
+      @collection
+      .findOne
+        _id: 
+          $ne: new ObjectId(@id) 
+        slugs: slugged 
+      , defer(err, data)
 
-      if data
-        slugged = @id 
-      @slugs.push slugged if @slugs and @slugs.indexOf(slugged) is -1
-      @slug = slugged
+    if data
+      slugged = @id 
+    
+    @slugs = [] unless @slugs
+    @slugs.push slugged if @slugs and @slugs.indexOf(slugged) is -1
+    @slug = slugged
 
-      next()
+    next()
