@@ -2,7 +2,7 @@
   "name": "mongoose-friendly-id",
   "version": "1.0.0",
   "description": "Slug for mongoose",
-  "main": "index.js",
+  "main": "dest/mongoose-friendly-id.js",
   "scripts": {
     "test": "mocha"
   },
@@ -11,16 +11,38 @@
     "url": "git@github.com:victorkim/mongoose-friendly-id.git"
   },
   "keywords": [
-    "slug",
+    "mongoose friendly",
+    "mongoose friendly id",
     "friendly",
     "mongoose",
+    "slug",
+    "slugify",
+    "speakingurl",
+    "transliteration",
+    "permalink",
+    "seo",
     "url",
-    "speakingurl"
+    "nice url",
+    "static url",
+    "clean url",
+    "pretty url",
+    "nice looking url",
+    "user friendly url",
+    "seo friendly url"
   ],
   "author": "victorkim",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/victorkim/mongoose-friendly-id/issues"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.8",
+    "gulp-coffee": "^2.1.1"
+  },
+  "dependencies": {
+    "speakingurl-add-korean": "*",
+    "mongoose": "*"
   },
   "homepage": "https://github.com/victorkim/mongoose-friendly-id"
 }
