@@ -1,0 +1,26 @@
+{
+  "name": "mongoose-friendly-id",
+  "version": "1.0.0",
+  "description": "Slug for mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:victorkim/mongoose-friendly-id.git"
+  },
+  "keywords": [
+    "slug",
+    "friendly",
+    "mongoose",
+    "url",
+    "speakingurl"
+  ],
+  "author": "victorkim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorkim/mongoose-friendly-id/issues"
+  },
+  "homepage": "https://github.com/victorkim/mongoose-friendly-id"
+}
