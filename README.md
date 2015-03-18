@@ -30,7 +30,7 @@ user2 = new User
 user2.slug #=> ObjectId('54ffa7b0f7ce3ce55b6d8515')
 user2.slugs #=> [ObjectId('54ffa7b0f7ce3ce55b6d8515')]
 
-User.findByFiriendlyId 'hello-world', (err, user) ->
+User.findByFriendlyId 'hello-world', (err, user) ->
   user.slug #=> 'hello-world'
   user.slugs #=> ['hello-world', 'beautiful-world']
 
