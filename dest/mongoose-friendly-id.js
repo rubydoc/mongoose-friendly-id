@@ -58,19 +58,20 @@ module.exports = function(schema, properties) {
         slugged = this.id;
       }
     }
-    await(this.collection).findOne({
+    return this.collection.findOne({
       _id: {
         $ne: new ObjectId(this.id)
       },
       slugs: slugged
-    }, defer(err, data));
-    if (data) {
-      slugged = this.id;
-    }
-    if (this.slugs && this.slugs.indexOf(slugged) === -1) {
-      this.slugs.push(slugged);
-    }
-    this.slug = slugged;
-    return next();
+    }, function(err, data) {
+      if (data) {
+        slugged = this.id;
+      }
+      if (this.slugs && this.slugs.indexOf(slugged) === -1) {
+        this.slugs.push(slugged);
+      }
+      this.slug = slugged;
+      return next();
+    });
   });
 };

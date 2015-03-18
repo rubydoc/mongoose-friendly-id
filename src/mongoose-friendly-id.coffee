@@ -38,16 +38,16 @@ module.exports = (schema, properties) ->
       else
         slugged = @id
 
-    await @collection
+    @collection
     .findOne
       _id: 
         $ne: new ObjectId(@id) 
       slugs: slugged 
-    , defer(err, data)
+    , (err, data) ->
 
-    if data
-      slugged = @id 
-    @slugs.push slugged if @slugs and @slugs.indexOf(slugged) is -1
-    @slug = slugged
+      if data
+        slugged = @id 
+      @slugs.push slugged if @slugs and @slugs.indexOf(slugged) is -1
+      @slug = slugged
 
-    next()
+      next()
